@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v1'], function () {
     Route::resource('songs', SongController::class);
-    Route::post('songs/search', [SongController::class, 'search']);
+    Route::get('songs/search/{search}', [SongController::class, 'search']);
 
     Route::resource('clients', ClientController::class);
     Route::post('clients/dni', [ClientController::class, 'showByDni']);

@@ -33,10 +33,8 @@ class SongController extends Controller
         //
     }
 
-    public function search(Request $request)
+    public function search($search)
     {
-        // recibimos por post el campo search
-        $search = $request->search;
         // buscamos por title, artist o gender
         $songs = Song::where('title', 'like', "%$search%")
             ->orWhere('artist', 'like', "%$search%")
